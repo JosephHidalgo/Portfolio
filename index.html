@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Portfolio</title>
+  </head>
+  <body>
+    <canvas id="canvas-3d"></canvas>
+    
+    <div id="content">
+      <!-- Sección inicial - Cubo flotante -->
+      <section class="face-section intro-section" data-face="intro">
+        <div class="intro-content">
+          <h1 class="intro-title">Bienvenido a mi Portfolio</h1>
+          <p class="intro-subtitle">Scroll para explorar</p>
+          <button class="portfolio-3d-btn">Portfolio version 3D</button>
+        </div>
+      </section>
+
+      <!-- Cara 1: About Me -->
+      <section class="face-section" data-face="front">
+        <div class="face-content">
+          <h2>Sobre Mí</h2>
+          <img src="/developer.png" alt="Developer" class="about-image">
+          <p class="about-text">Hola! Soy <strong>Joseph</strong>, desarrollador apasionado por crear experiencias digitales únicas.
+          </p>
+          <p class="about-text">Me encanta transformar ideas en soluciones reales usando tecnologías modernas.</p>
+        </div>
+      </section>
+
+      <!-- Cara 2: Skills -->
+      <section class="face-section" data-face="right">
+        <div class="face-content">
+          <h2>Habilidades Técnicas</h2>
+          <div class="skills-honeycomb">
+            <div class="hexagon-row">
+              <div class="hexagon"><img src="/python.svg" alt="Python"></div>
+              <div class="hexagon"><img src="/javascript.svg" alt="JavaScript"></div>
+              <div class="hexagon"><img src="/typescript.svg" alt="TypeScript"></div>
+              <div class="hexagon"><img src="/php.svg" alt="PHP"></div>
+              <div class="hexagon"><img src="/fastapi.svg" alt="FastAPI"></div>
+            </div>
+            <div class="hexagon-row">
+              <div class="hexagon"><img src="/django.svg" alt="Django"></div>
+              <div class="hexagon"><img src="/nextjs.svg" alt="Next.js"></div>
+              <div class="hexagon"><img src="/tailwindcss.svg" alt="Tailwind"></div>
+              <div class="hexagon"><img src="/postgresql.svg" alt="PostgreSQL"></div>
+            </div>
+            <div class="hexagon-row">
+              <div class="hexagon"><img src="/mysql.svg" alt="MySQL"></div>
+              <div class="hexagon"><img src="/git.svg" alt="Git"></div>
+              <div class="hexagon"><img src="/github.svg" alt="GitHub"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cara 3: Proyectos -->
+      <section class="face-section" data-face="back">
+        <div class="face-content">
+          <h2>Proyectos Destacados</h2>
+          
+          <!-- Carrusel de proyectos -->
+          <div class="projects-carousel">
+            <!-- Botón Anterior -->
+            <button class="carousel-btn prev" aria-label="Proyecto anterior">❮</button>
+            
+            <div class="carousel-container">
+              <!-- Proyecto 1 -->
+              <div class="project-card active">
+                <div class="project-image">
+                  <div class="project-placeholder">
+                    <span class="project-icon">🏥</span>
+                  </div>
+                </div>
+                <h3 class="project-name">Agente Médico</h3>
+              </div>
+
+              <!-- Proyecto 2 -->
+              <div class="project-card">
+                <div class="project-image">
+                  <div class="project-placeholder">
+                    <span class="project-icon">📊</span>
+                  </div>
+                </div>
+                <h3 class="project-name">ActivoHub</h3>
+              </div>
+
+              <!-- Proyecto 3 -->
+              <div class="project-card">
+                <div class="project-image">
+                  <div class="project-placeholder">
+                    <span class="project-icon">🛠️</span>
+                  </div>
+                </div>
+                <h3 class="project-name">AppFerretería</h3>
+              </div>
+
+              <!-- Proyecto 4 -->
+              <div class="project-card">
+                <div class="project-image">
+                  <div class="project-placeholder">
+                    <span class="project-icon">🗺️</span>
+                  </div>
+                </div>
+                <h3 class="project-name">MapaUnap</h3>
+              </div>
+            </div>
+
+            <!-- Botón Siguiente -->
+            <button class="carousel-btn next" aria-label="Proyecto siguiente">❯</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cara 4: Formación -->
+      <section class="face-section" data-face="left">
+        <div class="face-content">
+          <h2>Formación</h2>
+          <img src="/student.png" alt="Estudiante" class="formation-image">
+          <p class="formation-text">Ingeniería de Sistemas (9no Semestre) - Universidad Nacional del Altiplano</p>
+          <p class="formation-text">Nivel de Inglés: Intermediate - B1</p>
+        </div>
+      </section>
+
+      <!-- Cara 5: Contacto -->
+      <section class="face-section" data-face="top">
+        <div class="face-content">
+          <h2>¡Gracias por visitar!</h2>
+          <p class="contact-subtitle">¿Listo para construir algo juntos?</p>
+          <button class="cta-button">Contáctame</button>
+          <div class="social-icons">
+            <a href="mailto:hidalgoneirahenry@gmail.com" target="_blank" rel="noopener noreferrer">
+              <img src="/gmail.svg" alt="Gmail">
+            </a>
+            <a href="https://github.com/JosephHidalgo" target="_blank" rel="noopener noreferrer">
+              <img src="/github.svg" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/joseph-hidalgo" target="_blank" rel="noopener noreferrer">
+              <img src="/linkedin.svg" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
