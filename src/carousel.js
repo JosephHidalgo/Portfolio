@@ -4,33 +4,70 @@ export function initCarousel() {
   const prevBtn = document.querySelector('.carousel-btn.prev')
   const nextBtn = document.querySelector('.carousel-btn.next')
   const totalCards = cards.length
+  let isAnimating = false
 
-  function showCard(index) {
-    if (index < 0) index = totalCards - 1
-    if (index >= totalCards) index = 0
-    
-    currentIndex = index
+  cards.forEach((card, i) => {
+    card.classList.remove('active', 'prev')
+    if (i === 0) {
+      card.classList.add('active')
+    }
+  })
 
-    // Actualizar tarjetas
-    cards.forEach((card, i) => {
-      card.classList.remove('active', 'prev')
-      
-      if (i === currentIndex) {
-        card.classList.add('active')
-      } else if (i < currentIndex) {
-        card.classList.add('prev')
-      }
-    })
+  function showCard(newIndex, direction) {
+    if (isAnimating || newIndex === currentIndex) return
+    isAnimating = true
+
+    const outgoing = cards[currentIndex]
+    const incoming = cards[newIndex]
+
+    const enterFrom = direction === 'next'
+      ? 'translateX(100%) scale(0.9)'
+      : 'translateX(-100%) scale(0.9)'
+    const exitTo = direction === 'next'
+      ? 'translateX(-100%) scale(0.9)'
+      : 'translateX(100%) scale(0.9)'
+
+    incoming.style.transition = 'none'
+    incoming.style.transform = enterFrom
+    incoming.style.opacity = '0'
+    incoming.classList.add('active')
+
+    // Forzar reflow para aplicar posición inmediata
+    void incoming.offsetHeight
+
+    // Re-habilitar transición y animar entrada
+    incoming.style.transition = ''
+    incoming.style.transform = 'translateX(0) scale(1)'
+    incoming.style.opacity = '1'
+
+    // Animar salida de la tarjeta actual
+    outgoing.style.transform = exitTo
+    outgoing.style.opacity = '0'
+
+    // Limpieza después de la animación
+    setTimeout(() => {
+      outgoing.classList.remove('active')
+      outgoing.style.transform = ''
+      outgoing.style.opacity = ''
+      outgoing.style.transition = ''
+      incoming.style.transform = ''
+      incoming.style.opacity = ''
+      incoming.style.transition = ''
+      currentIndex = newIndex
+      isAnimating = false
+    }, 600)
   }
 
-  // Navegar al siguiente proyecto
+  // Navegar al siguiente proyecto (infinito)
   function nextCard() {
-    showCard(currentIndex + 1)
+    const newIndex = (currentIndex + 1) % totalCards
+    showCard(newIndex, 'next')
   }
 
-  // Navegar al proyecto anterior
+  // Navegar al proyecto anterior (infinito)
   function prevCard() {
-    showCard(currentIndex - 1)
+    const newIndex = (currentIndex - 1 + totalCards) % totalCards
+    showCard(newIndex, 'prev')
   }
 
   // Event listeners para los botones
@@ -61,7 +98,6 @@ export function initCarousel() {
   window.addEventListener('keydown', handleKeyboard)
 
   let touchStartX = 0
-  let touchEndX = 0
 
   const carouselContainer = document.querySelector('.carousel-container')
   
@@ -71,7 +107,7 @@ export function initCarousel() {
     }, { passive: true })
 
     carouselContainer.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].clientX
+      const touchEndX = e.changedTouches[0].clientX
       const diff = touchStartX - touchEndX
 
       if (Math.abs(diff) > 50) {
@@ -83,6 +119,4 @@ export function initCarousel() {
       }
     }, { passive: true })
   }
-
-  showCard(0)
 }

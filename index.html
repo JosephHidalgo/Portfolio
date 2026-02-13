@@ -2,11 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Portfolio</title>
+    <title>Dalgodev - Portfolio</title>
   </head>
-  <body>
+  <body class="loading">
     <canvas id="canvas-3d"></canvas>
     
     <div id="content">
@@ -15,43 +14,77 @@
         <div class="intro-content">
           <h1 class="intro-title">Bienvenido a mi Portfolio</h1>
           <p class="intro-subtitle">Scroll para explorar</p>
-          <button class="portfolio-3d-btn">Portfolio version 3D</button>
+          <button class="portfolio-3d-btn disabled" disabled>Version 3D próximamente...</button>
         </div>
       </section>
 
       <!-- Cara 1: About Me -->
       <section class="face-section" data-face="front">
-        <div class="face-content">
-          <h2>Sobre Mí</h2>
-          <img src="/developer.png" alt="Developer" class="about-image">
-          <p class="about-text">Hola! Soy <strong>Joseph</strong>, desarrollador apasionado por crear experiencias digitales únicas.
-          </p>
-          <p class="about-text">Me encanta transformar ideas en soluciones reales usando tecnologías modernas.</p>
+        <div class="face-content about-layout">
+          <div class="about-text-column">
+            <h2>Sobre Mí</h2>
+            <p class="about-text">Hola, me llamo <strong>Joseph</strong>, desarrollador web con experiencia en frontend, backend, bases de datos y despliegue.
+              Me gusta mucho la tecnología, especialmente la programación, me encanta aprender nuevas tecnologías y siempre me trazo nuevas metas para crecer no solo
+              como profesional, sino también como persona.
+            </p>          </div>
+          <div class="about-image-column">
+            <img src="/developer.png" alt="Developer" class="about-image">
+          </div>
         </div>
       </section>
 
       <!-- Cara 2: Skills -->
       <section class="face-section" data-face="right">
         <div class="face-content">
-          <h2>Habilidades Técnicas</h2>
-          <div class="skills-honeycomb">
-            <div class="hexagon-row">
-              <div class="hexagon"><img src="/python.svg" alt="Python"></div>
-              <div class="hexagon"><img src="/javascript.svg" alt="JavaScript"></div>
-              <div class="hexagon"><img src="/typescript.svg" alt="TypeScript"></div>
-              <div class="hexagon"><img src="/php.svg" alt="PHP"></div>
-              <div class="hexagon"><img src="/fastapi.svg" alt="FastAPI"></div>
+          <h2>Stack Tecnológico</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <img src="/python.svg" alt="Python">
+              <span>Python</span>
             </div>
-            <div class="hexagon-row">
-              <div class="hexagon"><img src="/django.svg" alt="Django"></div>
-              <div class="hexagon"><img src="/nextjs.svg" alt="Next.js"></div>
-              <div class="hexagon"><img src="/tailwindcss.svg" alt="Tailwind"></div>
-              <div class="hexagon"><img src="/postgresql.svg" alt="PostgreSQL"></div>
+            <div class="skill-item">
+              <img src="/javascript.svg" alt="JavaScript">
+              <span>JavaScript</span>
             </div>
-            <div class="hexagon-row">
-              <div class="hexagon"><img src="/mysql.svg" alt="MySQL"></div>
-              <div class="hexagon"><img src="/git.svg" alt="Git"></div>
-              <div class="hexagon"><img src="/github.svg" alt="GitHub"></div>
+            <div class="skill-item">
+              <img src="/typescript.svg" alt="TypeScript">
+              <span>TypeScript</span>
+            </div>
+            <div class="skill-item">
+              <img src="/php.svg" alt="PHP">
+              <span>PHP</span>
+            </div>
+            <div class="skill-item">
+              <img src="/fastapi.svg" alt="FastAPI">
+              <span>FastAPI</span>
+            </div>
+            <div class="skill-item">
+              <img src="/django.svg" alt="Django">
+              <span>Django</span>
+            </div>
+            <div class="skill-item">
+              <img src="/nextjs.svg" alt="Next.js">
+              <span>Next.js</span>
+            </div>
+            <div class="skill-item">
+              <img src="/tailwindcss.svg" alt="Tailwind">
+              <span>Tailwind CSS</span>
+            </div>
+            <div class="skill-item">
+              <img src="/postgresql.svg" alt="PostgreSQL">
+              <span>PostgreSQL</span>
+            </div>
+            <div class="skill-item">
+              <img src="/mysql.svg" alt="MySQL">
+              <span>MySQL</span>
+            </div>
+            <div class="skill-item">
+              <img src="/git.svg" alt="Git">
+              <span>Git</span>
+            </div>
+            <div class="skill-item">
+              <img src="/github.svg" alt="GitHub">
+              <span>GitHub</span>
             </div>
           </div>
         </div>
@@ -69,44 +102,49 @@
             
             <div class="carousel-container">
               <!-- Proyecto 1 -->
-              <div class="project-card active">
+              <a href="https://agentemedico.dalgo.dev" target="_blank" rel="noopener noreferrer" class="project-card active">
                 <div class="project-image">
-                  <div class="project-placeholder">
-                    <span class="project-icon">🏥</span>
-                  </div>
+                  <img src="/agentemedico.svg" alt="Agente Médico" class="project-img">
                 </div>
                 <h3 class="project-name">Agente Médico</h3>
-              </div>
+                <p class="project-description">Sistema inteligente de atención médica con IA que identifica qué atencion necesita el usuario y recomienda agendar una cita
+                  <br/>Hecho con: Nextjs, Django, PostgreSQL, OpenAI API y Redis
+                </p>
+              </a>
 
               <!-- Proyecto 2 -->
-              <div class="project-card">
+              <a href="https://chat.dalgo.dev" target="_blank" rel="noopener noreferrer" class="project-card">
                 <div class="project-image">
-                  <div class="project-placeholder">
-                    <span class="project-icon">📊</span>
-                  </div>
+                  <img src="/chat.png" alt="ActivoHub" class="project-img">
                 </div>
-                <h3 class="project-name">ActivoHub</h3>
-              </div>
+                <h3 class="project-name">Chat Seguro</h3>
+                <p class="project-description">Aplicación de chat en tiempo real (websockets) con encriptación híbrida, RSA y AES. 
+                  <br/>Hecho con: Vite, FastAPI y PostgreSQL
+                </p>
+              </a>
 
               <!-- Proyecto 3 -->
-              <div class="project-card">
+              <a href="https://ferreteria.dalgo.dev" target="_blank" rel="noopener noreferrer" class="project-card">
                 <div class="project-image">
-                  <div class="project-placeholder">
-                    <span class="project-icon">🛠️</span>
-                  </div>
+                  <img src="/ferreteria.png" alt="AppFerretería" class="project-img">
                 </div>
                 <h3 class="project-name">AppFerretería</h3>
-              </div>
+                <p class="project-description">Sistema Desktop de inventario y ventas para ferreterías con control de stock automático
+                  <br/>Hecho con: 100% Python
+                </p>
+              </a>
 
               <!-- Proyecto 4 -->
-              <div class="project-card">
+              <a href="https://mapunap.dalgo.dev" target="_blank" rel="noopener noreferrer" class="project-card">
                 <div class="project-image">
-                  <div class="project-placeholder">
-                    <span class="project-icon">🗺️</span>
-                  </div>
+                  <img src="/mapa.png" alt="MapaUnap" class="project-img">
                 </div>
                 <h3 class="project-name">MapaUnap</h3>
-              </div>
+                <p class="project-description">Mapa interactivo de la Universidad Nacional del Altiplano para elegir las rutas más cortas
+                  entre escuelas profesionales usando el algoritmo A* 
+                  <br/>Hecho con: Vite, FastAPI, MapTiler y OpenAI API.
+                </p>
+              </a>
             </div>
 
             <!-- Botón Siguiente -->
@@ -117,11 +155,17 @@
 
       <!-- Cara 4: Formación -->
       <section class="face-section" data-face="left">
-        <div class="face-content">
-          <h2>Formación</h2>
-          <img src="/student.png" alt="Estudiante" class="formation-image">
-          <p class="formation-text">Ingeniería de Sistemas (9no Semestre) - Universidad Nacional del Altiplano</p>
-          <p class="formation-text">Nivel de Inglés: Intermediate - B1</p>
+        <div class="face-content formation-layout">
+          <div class="formation-image-column">
+            <img src="/student.png" alt="Estudiante" class="formation-image">
+          </div>
+          <div class="formation-text-column">
+            <h2>Formación</h2>
+            <p class="formation-text">Actualmente me encuentro estudiando la carrera de <strong>Ingeniería de Sistemas</strong>,
+              estoy cursando el 9no semestre en la Universidad Nacional del Altiplano - Puno.
+            </p>
+            <p class="formation-text">También estudio inglés, del cuál ya tengo nivel Intermedio - B1</p>
+          </div>
         </div>
       </section>
 
@@ -130,7 +174,11 @@
         <div class="face-content">
           <h2>¡Gracias por visitar!</h2>
           <p class="contact-subtitle">¿Listo para construir algo juntos?</p>
-          <button class="cta-button">Contáctame</button>
+          <div class="contact-prompt">
+            <a href="mailto:hidalgoneirahenry@gmail.com" class="contact-email-link">
+              hidalgoneirahenry@gmail.com
+            </a>
+          </div>
           <div class="social-icons">
             <a href="mailto:hidalgoneirahenry@gmail.com" target="_blank" rel="noopener noreferrer">
               <img src="/gmail.svg" alt="Gmail">

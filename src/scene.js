@@ -5,9 +5,9 @@ export function initScene() {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color(0x0a0a0a)
 
-  // Configurar la cámara
+  // Configurar la cámara con FOV menor para mejor zoom
   const camera = new THREE.PerspectiveCamera(
-    75,
+    60,  // FOV reducido de 75 a 60
     window.innerWidth / window.innerHeight,
     0.1,
     1000
@@ -26,22 +26,22 @@ export function initScene() {
 
   // Crear el cubo 
   const materials = [
-    new THREE.MeshStandardMaterial({ color: 0x87CEEB, metalness: 0, roughness: 0.8 }), // Derecha - Celeste vivo
-    new THREE.MeshStandardMaterial({ color: 0xFFB6C1, metalness: 0, roughness: 0.8 }), // Izquierda - Rosa vivo
-    new THREE.MeshStandardMaterial({ color: 0x98D8C8, metalness: 0, roughness: 0.8 }), // Arriba - Turquesa pastel
-    new THREE.MeshStandardMaterial({ color: 0xFFE66D, metalness: 0, roughness: 0.8 }), // Abajo - Amarillo vivo
-    new THREE.MeshStandardMaterial({ color: 0xB4E7CE, metalness: 0, roughness: 0.8 }), // Frente - Menta vivo
-    new THREE.MeshStandardMaterial({ color: 0xC4A1FF, metalness: 0, roughness: 0.8 })  // Atrás - Lila vivo
+    new THREE.MeshStandardMaterial({ color: 0x5A8BB0, metalness: 0, roughness: 0.8, transparent: true, opacity: 1 }), // Derecha - Celeste oscuro
+    new THREE.MeshStandardMaterial({ color: 0xB37F88, metalness: 0, roughness: 0.8, transparent: true, opacity: 1 }), // Izquierda - Rosa oscuro
+    new THREE.MeshStandardMaterial({ color: 0x6A968C, metalness: 0, roughness: 0.8, transparent: true, opacity: 1 }), // Arriba - Turquesa oscuro
+    new THREE.MeshStandardMaterial({ color: 0xB3A04C, metalness: 0, roughness: 0.8, transparent: true, opacity: 1 }), // Abajo - Amarillo oscuro
+    new THREE.MeshStandardMaterial({ color: 0x7DA190, metalness: 0, roughness: 0.8, transparent: true, opacity: 1 }), // Frente - Menta oscuro
+    new THREE.MeshStandardMaterial({ color: 0x8870B3, metalness: 0, roughness: 0.8, transparent: true, opacity: 1 })  // Atrás - Lila oscuro
   ]
 
-  const geometry = new THREE.BoxGeometry(2, 2, 2)
+  const geometry = new THREE.BoxGeometry(1.6, 1.6, 1.6)
   const cube = new THREE.Mesh(geometry, materials)
   
   // Posición inicial responsive
   const isMobile = window.innerWidth <= 768
   cube.position.set(
-    isMobile ? 1 : -2.5,    
-    isMobile ? -5.5 : 0,    
+    isMobile ? 0 : -2.5,    
+    isMobile ? -1.1 : 0,    
     0
   )
   scene.add(cube)
@@ -68,7 +68,7 @@ export function initScene() {
   pointLight.position.set(0, 0, 5)
   scene.add(pointLight)
 
-  // Partículas de fondo
+  // Partículas de fondo (espacio)
   const particlesGeometry = new THREE.BufferGeometry()
   const particlesCount = 500
   const positions = new Float32Array(particlesCount * 3)
